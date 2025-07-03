@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida media de un medicamento</title>
+    <link rel="stylesheet" href="css/vidaMedia.css">
+    <link rel="icon" href="idea.jpg">
+
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <nav>
+            <ul>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">Search info</a></li>
+                <li class="info">Info</li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <form>
+            <label for="concentracion" class="starting">Ingrese la concentración plasmatica(C):
+                <input type="text" id="concentracion">
+                <label for="concentracion" class="starting">Ingrese la vida media(H):
+                <input type="text" id="horasT">
+                <button id="start" type="submit">Crear tabla</button>
+            </label>
+            <br>
+            <table>
+                <thead>Vida Media</thead>
+                <tr>
+                    <th>C</th>
+                    <th>H</th>
+                    <th>VM</th>
+                </tr>
+            </table>
+        </form>
+    </main>
+    <aside >
+        La vida media de un medicamento es el tiempo que tarda la concentración de ese medicamento en el organismo en reducirse a la mitad. Este concepto es fundamental en farmacología, ya que ayuda a entender cómo se metaboliza y se elimina un fármaco del cuerpo. La vida media varía entre diferentes medicamentos y puede influir en su eficacia y seguridad. En términos simples, es el tiempo que se necesita para que la cantidad de un medicamento en el torrente sanguíneo se reduzca a la mitad. 
+
+        <br>
+        La concentración es cada vez menos porque el farmaco se va eliminando...
+    </aside>
+    <footer>
+        <a href="https://github.com/eve025" target="_blank">About us</a>
+    </footer>
+</body>
+<script src="js/vidaMedia.js" defer></script>
+</html>
