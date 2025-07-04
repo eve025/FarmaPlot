@@ -46,7 +46,7 @@ const GraficVMxH = new Chart(VMxH, {
     data: {
     labels: [], // Eje X: horas
     datasets: [{
-        label: 'Vida media',
+        label: 'Concentración (mg/L)',
         data: [], // Eje Y: concentración
         borderColor: 'violet',
         fill: false,
@@ -58,20 +58,20 @@ const GraficVMxH = new Chart(VMxH, {
     plugins: {
         title: {
         display: true,
-        text: 'Vida Media vs Horas'
+        text: 'Concentración vs Horas'
         }
     },
     scales: {
         x: {
         title: {
             display: true,
-            text: 'Horas'
+            text: 'Vida Media'
         }
         },
         y: {
         title: {
             display: true,
-            text: 'Vida Media'
+            text: 'Concentración (mg/L)'
         },
         ticks:{   
             display: false // Oculta los números del eje Y

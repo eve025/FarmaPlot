@@ -112,13 +112,13 @@ div h6{
     padding-bottom:5px;
 }
 
-div button{
+span button{
     border-radius:10px;
     padding: 5px;
     border:1px solid #000;
     width:100px;
 }
-a{
+div a{
     color:#000;
     text-decoration: none;
 }
@@ -157,7 +157,7 @@ table{
     height: auto;
     width:auto;
     z-index:1;
-    
+    margin:10%;
    /* margin:20px;
    position: absolute;
    top:70%; */
@@ -168,6 +168,10 @@ th, td{
     width:50px;
     height: auto;
     padding:10px;
+}
+
+article{
+    background-color: #fff;
 }
 
 section{
