@@ -12,10 +12,11 @@ header{
 
 body{
     width:100vw;
-    height:100vh;
+    height:auto;
     font-family: "Ubuntu", sans-serif;
     font-weight: 400;
     font-style: normal;
+    overflow-x: hidden;
 }
 
 h1{
@@ -25,6 +26,8 @@ h1{
     font-style: normal;
     font-variation-settings:"wdth" 100;
     margin-bottom:80px;
+    text-align: center;
+    margin-top:2em;
 }
 ul{
     height:60px;
@@ -46,16 +49,12 @@ li{
 }
 
 main{
-    height: 100vh;
     background-color: rgb(159, 141, 176);
     display: flex;
     justify-content:center;
     flex-direction:column;
 }
-.starting, .VM{
-    background-color: rgb(225, 214, 235);
-    padding: 10px;
-}
+
 button{
     background-color: rgb(224, 220, 227);
     padding: 10px;
@@ -64,14 +63,24 @@ button{
 }
 
 aside{
-   background-color: rgb(183, 131, 131);
-   padding:20px;
+    background-color: rgb(183, 131, 131);
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction:  column;
     align-items:center;
     position: relative;
-    text-align: justify;
+    padding:10%;
+    
 }
+p{
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:900;padding:20px;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+    margin-bottom:80px;text-align: justify;
+}
+ 
 
 footer{
     background-color: rgb(170, 57, 57);
@@ -81,6 +90,7 @@ footer{
     position: fixed;
     bottom: 0px;
     width:100%;
+    padding:10px;
 }
 div{
     background-color: rgb(111, 95, 95);
@@ -96,24 +106,48 @@ div{
     padding:20px;
 }
 
-div h1{
+div h6{
     color:yellow;
     text-align: center;
+    padding-bottom:5px;
 }
 
 div button{
     border-radius:10px;
+    padding: 5px;
+    border:1px solid #000;
+    width:100px;
 }
 a{
     color:#000;
     text-decoration: none;
 }
+
 form{
     background-color: #fff;
-    padding:10px;
+    padding:30px;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction:row;
 }
-input{
-    margin:20px;
+
+form span button{
+    border-radius:50%;
+    padding:10px;
+    border:1px solid #000;
+    width:100px;
+}
+
+label{
+    padding:20px;
+    margin-bottom:10%;
+    width:100%;
+}
+input{ 
+    padding: 10px;
+    width:80%;
+    margin:30px;
 }
 table{
     position: relative;
@@ -137,6 +171,8 @@ th, td{
 }
 
 section{
-    height:100px;
-    background-color:red;
+    height:auto;
+    padding:50px;
+    background-color:rgb(219, 219, 219);
+    margin:10%;
 }

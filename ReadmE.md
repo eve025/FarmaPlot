@@ -9,3 +9,5 @@ What the project need to do?
 -show the graph
 
 ![alt text](idea.jpg)
+
+https://www.chartjs -  library used

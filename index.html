@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vida media de un medicamento</title>
+    <title>💊FarmaPlot</title>
     <link rel="stylesheet" href="css/vidaMedia.css">
-    <link rel="icon" href="idea.jpg">
+    <link rel="icon" href="pharmacist.gif">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -15,26 +15,30 @@
         <nav>
             <ul>
                 <li><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">Search info</a></li>
-                <li class="info">Info</li>
+                <li class="info"><a href="#info">Info</a></li>
             </ul>
         </nav>
         
     </header>
     
     <main>
-        <h1>Concentración plasmatica</h1>
+        <h1>💊FarmaPlot</h1>
         <form>
-            <label for="concentracion" class="starting">Ingrese la concentración plasmatica(C):
-                <input type="text" id="concentracion">
+            <span>
+                <label for="concentracion" class="starting">
+                🩺Ingrese la concentración plasmatica(C):
+                <input type="text" id="concentracion" placeholder="Ingrese concentración">
                 </label>
                 <br>
-            <label for="horasT" class="VM">Ingrese la vida media(H):
-                <input type="text" id="horasT">
+                <label for="horasT" class="VM">
+                🩺Ingrese la vida media(H):
+                <input type="text" id="horasT" placeholder="Ingrese horas">
                 </label>
-                <button id="start" type="submit">Crear tabla</button>
             </label>
-            <br>
-            
+            </span>  
+            <span>
+                <button id="start" type="submit">Crear tabla</button> 
+            </span>         
         </form>
         <table>
             <tr>
@@ -45,15 +49,17 @@
         </table>
     </main>
     <section>
-        
+        <canvas id="graficaCxH"></canvas>
+    </section><br>
+    <section>
+        <canvas id="graficaVMxH"></canvas>
     </section>
-    <aside >
+    <aside id="info">
         <img src="pharmacist.gif"><br>
         <p>
             La vida media de un medicamento es el tiempo que tarda la concentración de ese medicamento en el organismo en reducirse a la mitad. Este concepto es fundamental en farmacología, ya que ayuda a entender cómo se metaboliza y se elimina un fármaco del cuerpo. La vida media varía entre diferentes medicamentos y puede influir en su eficacia y seguridad. En términos simples, es el tiempo que se necesita para que la cantidad de un medicamento en el torrente sanguíneo se reduzca a la mitad. 
 
-        <br>
-        La concentración es cada vez menos porque el farmaco se va eliminando...
+        <br>La concentración es cada vez menos porque el farmaco se va eliminando...
         </p>
     </aside>
     <footer>
@@ -61,4 +67,6 @@
     </footer>
 </body>
 <script src="js/vidaMedia.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/graficas.js" defer></script>
 </html>

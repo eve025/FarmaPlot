@@ -1,4 +1,4 @@
-console.log("hola");
+// console.log("hola");
 
 let buttonStart = document.querySelector("#start");
 buttonStart.addEventListener("click", crearTabla);
@@ -25,50 +25,58 @@ function crearTabla(e){
     //deshabilitar escribir en input
     inputHrs.disabled = true;
 
+    
+    let section = document.querySelectorAll("section");
 
-
-    if(concentracion.length === 0 || concentracion === ""){
-        console.log("try again");
-        console.log("la concentracion es " + concentracion);
+    if((concentracion.length === 0 || concentracion === "") || (Hrs.length === 0 || Hrs === "")){
+        // console.log("try again");
+        // console.log("la concentracion es " + concentracion);
         
         //mostrar leyenda con datos ingresados
         let div = document.createElement("div");
-        let h1 = document.createElement("h1");
+        let h6 = document.createElement("h6");
         let buttonRedirect = document.createElement("button");
         let aRedirect = document.createElement("a");
-        h1.textContent = "La tabla no puede ser generada, ingrese datos..."
-        div.appendChild(h1);
+        h6.textContent = "La tabla no puede ser generada, ingrese datos..."
+        div.appendChild(h6);
         aRedirect.href = "index.html";
         aRedirect.textContent = "Intentar denuevo";
         buttonRedirect.appendChild(aRedirect);
         div.appendChild(buttonRedirect);
         document.body.appendChild(div);
 
+        section.forEach(function(seccion){
+            seccion.style.border = "2px solid red";
+        }); //solo aparec en el primero, hya q iterar
+        
     }else{
-        console.log("no esta vacio");
-        console.log("la concentracion es " + concentracion);
+        // console.log("no esta vacio");
+        // console.log("la concentracion es " + concentracion);
 
         //mostrar leyenda con datos ingresados
         let div = document.createElement("div");
-        let h1 = document.createElement("h1");
+        let h6 = document.createElement("h6");
         let buttonRedirect = document.createElement("button");
         let aRedirect = document.createElement("a");
         let section = document.querySelector("main");
-        h1.textContent = `La tabla generada muestra una concentracion inicial: ${concentracion} y vida media inicial: ${Hrs}`
-        div.appendChild(h1);
+        h6.textContent = `La tabla generada muestra una concentracion inicial: ${concentracion} y vida media inicial: ${Hrs}`
+        div.appendChild(h6);
         aRedirect.href = "index.html";
         aRedirect.textContent = "Crear nueva tabla";
         buttonRedirect.appendChild(aRedirect);
 
         div.appendChild(buttonRedirect);
         section.insertAdjacentElement("beforebegin", div);
+        section.forEach(function(seccion){
+            seccion.style.border = "2px solid red";
+        }); //solo aparec en el primero, hya q iterar
 
         //NOTA: en este programa se toma un umbral para parar las divisiones
         let row = 0;
         for(let i = concentracion; i>=0.001; i = i/2){
-            console.log(i)
+            // console.log(i) //numero ingresado 
             row++;
-            console.log(row)
+            // console.log(row) //numero de filas q se deben crear
             
         }
         console.log("Filas a crear: "+ row);
@@ -103,21 +111,21 @@ function crearTabla(e){
                 //resultados para columna 0 y 1
                 //estamos en el for de la j osea columnas
                 //i=fila              j=columna 
-                let vh = [];
+                let vm = [];
                 if(i >= 1 && j == 0){
                     for(let k= 0 ; k <= row;k++){
-                        vh.push(k);
+                        vm.push(k);
                         // celda[j].innerHTML = calcC;
                         // console.log(calcC)
                     }
                     //recorrer el arreglo
-                    for(let hora of vh){
+                    for(let hr of vm){
                         //se pasan a string para crear el elemento
-                        hora.toString();
-                        console.log(hora)
+                        hr.toString();
+                        console.log(hr) //cada hora
                     }
 
-                    celda[j].innerHTML = vh[i];
+                    celda[j].innerHTML = vm[i];
                 }
                 
 
@@ -136,7 +144,7 @@ function crearTabla(e){
                     //recorrer horas
                     for(let hora of h){
                         hora.toString();
-                        console.log(hora)
+                        console.log(hora) //arreglo columna 1 = H
                     }
                     celda[j].innerHTML = h[i];
                 }
@@ -161,11 +169,11 @@ function crearTabla(e){
                     for(let cNum of C){
                         cNum.toString();
                         // celda[j].innerHTML = cNum.toString();
-                        console.log(cNum)
+                        // console.log(cNum)
                     }
                     celda[j].innerHTML = C[i];
                     // console.log(concentracion)
-                    console.log(C)
+                    console.log(C) //arreglo columna 2 
                     
                  }
                 // añadiendo la celda a la fila
