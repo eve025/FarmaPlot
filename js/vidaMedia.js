@@ -34,8 +34,15 @@ function crearTabla(e){
         //mostrar leyenda con datos ingresados
         let div = document.createElement("div");
         let h1 = document.createElement("h1");
-        h1.textContent = "La tabla no puede ser generada, ingrese datos denuevo.."
+        let buttonRedirect = document.createElement("button");
+        let aRedirect = document.createElement("a");
+        h1.textContent = "La tabla no puede ser generada, ingrese datos..."
         div.appendChild(h1);
+        aRedirect.href = "index.html";
+        aRedirect.textContent = "Intentar denuevo";
+        buttonRedirect.appendChild(aRedirect);
+        div.appendChild(buttonRedirect);
+        document.body.appendChild(div);
 
     }else{
         console.log("no esta vacio");
@@ -44,8 +51,17 @@ function crearTabla(e){
         //mostrar leyenda con datos ingresados
         let div = document.createElement("div");
         let h1 = document.createElement("h1");
-        h1.textContent = "La tabla generada muestra una concentracion inicial '${concentracion}' y vida media inicial: '${Hrs}' "
+        let buttonRedirect = document.createElement("button");
+        let aRedirect = document.createElement("a");
+        let section = document.querySelector("main");
+        h1.textContent = `La tabla generada muestra una concentracion inicial: ${concentracion} y vida media inicial: ${Hrs}`
         div.appendChild(h1);
+        aRedirect.href = "index.html";
+        aRedirect.textContent = "Crear nueva tabla";
+        buttonRedirect.appendChild(aRedirect);
+
+        div.appendChild(buttonRedirect);
+        section.insertAdjacentElement("beforebegin", div);
 
         //NOTA: en este programa se toma un umbral para parar las divisiones
         let row = 0;
