@@ -37,17 +37,19 @@ function crearTabla(e){
     inputHrs.disabled = true;
 
     //Validaciones en los inputs
-    if(isNaN(concentracion) || concentracion <= 0){
+    let concentracionOk = !isNaN(concentracion) && concentracion > 0;
+    let hrsOK = !isNaN(Hrs) && Hrs > 0
+    if(concentracionOk){
         //llamada a funcion del mensaje
         //se pasa texto para h6 y que es un error(true)
-        mensaje("La tabla no puede ser generada, ingrese datos numéricos válidos y mayores a cero...<br>Se gráfica muestra concentraión x VM", true);
+        mensaje("La columna vida media(H) de la tabla no puede ser generada, ingrese datos numéricos válidos y mayores a cero... La gráfica muestra concentración x VM", true);
         //no se generan graficas en este caso entonces se muestran bordes rojos
         //section es una lista, no un único elemento.
         section.forEach(function(seccionIndividual){
             seccionIndividual.style.border = "2px solid red";
         });
         
-    }else if(isNaN(Hrs) || Hrs <= 0){
+    }else if(hrsOK || (!concentracionOk && !hrsOK)){
         //llamada a funcion del mensaje
         //se pasa texto para h6 y que es un error(true)
         mensaje("La tabla no puede ser generada, ingrese datos numéricos válidos y mayores a cero...", true);
@@ -63,11 +65,13 @@ function crearTabla(e){
     //mostrar leyenda con datos ingresados
     //llamada a funcion del mensaje
     //se pasa texto para h6 y que NO es un error(false)
-    mensaje(`La tabla y gráficas generadas muestran una concentracion inicial: ${concentracion} y vida media inicial: ${Hrs}`, false);
+    if(concentracionOk && hrsOK){
+        mensaje(`La tabla y gráficas generadas muestran una concentración inicial: ${concentracion} y vida media inicial: ${Hrs}`, false);
 
     section.forEach(function(seccionIndividual){
             seccionIndividual.style.border = "2px solid #000";
         });
+    }
 
     //NOTA: en este programa se toma un umbral para parar las divisiones
     let row = 0;
@@ -229,3 +233,5 @@ function mensaje(texto, esError){
     div.appendChild(buttonRedirect);
     section.insertAdjacentElement("beforebegin", div);
 }
+
+// EH, july 2025
