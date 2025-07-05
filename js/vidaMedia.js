@@ -9,6 +9,11 @@ const inputHrs = document.querySelector("#horasT");
 //section para señalar error
 let section = document.querySelectorAll("section");
 
+//arreglos
+const vm = [];
+const h = [];
+const C = [];
+
 function crearTabla(e){
     
     //se define el evento pasandole el argumento
@@ -46,12 +51,12 @@ function crearTabla(e){
     }
    
     // !Hrs verifica si Hrs es falsy (vacío, null, undefined, 0, NaN o false), no solo si es ""
-    if((!concentracion ||  !Hrs)){
+    if((!concentracion || !Hrs)){
         // console.log("try again");
         // console.log("la concentracion es " + concentracion);
         
         //mostrar leyenda con datos ingresados, e un error se pasa true
-        mostrarMensaje("La tabla no puede ser generada, ingrese datos...", true);
+        mensaje("La tabla no puede ser generada, ingrese datos...", true);
         //no se generan graficas en este caso entonces se muestran bordes rojos
         //section es una lista, no un único elemento.
         section.forEach(function(seccionIndividual){
@@ -79,6 +84,7 @@ function crearTabla(e){
         // console.log(row) //numero de filas q se deben crear
         
     }
+
     console.log("Filas a crear: "+ row);
     const tabla = document.querySelector("table");
     // let rowi = [];//creo que debe ser un arreglo
@@ -97,6 +103,10 @@ function crearTabla(e){
         celdaH.textContent = i * Hrs;
         celdaC.textContent = (concentracion / (2 ** i));
         
+
+        vm[i] = i;
+        h[i] = i * Hrs;
+        C[i] = (concentracion / (2 ** i));
         //con 3 columnas
         // for(let j = 0; j <= 2; j++){
         //     //osea 3 celdas
@@ -192,6 +202,21 @@ function crearTabla(e){
     //     }
     //     tabla.appendChild(rowi[i]);
     }
+    console.log(h, vm, C);
+
+    
+    //Arreglos de la tabla
+    GraficoCxH.data.labels = h; // Eje X: horas
+    //nota: En Chart.js, el objeto data de un gráfico puede contener uno o más conjuntos de datos (datasets).
+    //osea es un arreglo con un objeto en la posicion 0 - Ese objeto representa un conjunto de datos (una línea en el gráfico, por ejemplo).
+    GraficoCxH.data.datasets[0].data = C; //accediendo al primer objeto dentro del array datasets. = Eje Y: concentración
+    GraficoCxH.update();
+
+
+    //grafico Vm x H
+    GraficVMxH.data.labels = vm; // Eje X: vida media
+    GraficVMxH.data.datasets[0].data = C; //accediendo al primer objeto dentro del array datasets. = Eje Y:Concentración
+    GraficVMxH.update();
 }
 
 //crear la grafica

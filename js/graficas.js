@@ -33,7 +33,7 @@ const GraficoCxH = new Chart(CxH, {
             text: 'Concentración (mg/L)'
         },
         ticks:{   
-            display: false // Oculta los números del eje Y
+            display: true // NO Oculta los números del eje Y
         }
         }
     }
@@ -47,7 +47,7 @@ const GraficVMxH = new Chart(VMxH, {
     labels: [], // Eje X: horas
     datasets: [{
         label: 'Concentración (mg/L)',
-        data: [], // Eje Y: concentración
+        data: [], // Eje Y: vida media
         borderColor: 'violet',
         fill: false,
         tension: 0.3
@@ -58,7 +58,7 @@ const GraficVMxH = new Chart(VMxH, {
     plugins: {
         title: {
         display: true,
-        text: 'Concentración vs Horas'
+        text: 'Concentración vs Vida Media'
         }
     },
     scales: {
@@ -71,10 +71,10 @@ const GraficVMxH = new Chart(VMxH, {
         y: {
         title: {
             display: true,
-            text: 'Concentración (mg/L)'
+            text: 'Concentración'
         },
         ticks:{   
-                display: false // Oculta los números del eje Y
+                display: true // NO Oculta los números del eje Y
             }
         }
     }
