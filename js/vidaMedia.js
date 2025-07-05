@@ -19,7 +19,7 @@ function crearTabla(e){
     const concentracion = parseFloat(inputConcentracion.value);
     
     //se convierte a decimal
-    const Hrs = parseInt(inputHrs.value, 10);
+    const Hrs = parseFloat(inputHrs.value);
     
     //actualizar la ui al intentar crear tabla con datos ingresados
     //deshabilitar escribir en input
@@ -80,107 +80,117 @@ function crearTabla(e){
         
     }
     console.log("Filas a crear: "+ row);
-    let tabla = document.querySelector("table");
-    let rowi = [];//creo que debe ser un arreglo
-    let celda = [];
+    const tabla = document.querySelector("table");
+    // let rowi = [];//creo que debe ser un arreglo
+    // let celda = [];
     for(let i = 0;i<row;i++){
-        //crear filas
-        rowi[i] = document.createElement("tr");
 
+        //crear filas
+        const fila = tabla.insertRow();
+        // rowi[i] = document.createElement("tr");
+
+        const celdaVM = fila.insertCell();
+        const celdaH = fila.insertCell();
+        const celdaC = fila.insertCell();
+
+        celdaVM.textContent = i;
+        celdaH.textContent = i * Hrs;
+        celdaC.textContent = (concentracion / (2 ** i));
+        
         //con 3 columnas
-        for(let j = 0; j <= 2; j++){
-            //osea 3 celdas
-            celda[j] = document.createElement("td");
+        // for(let j = 0; j <= 2; j++){
+        //     //osea 3 celdas
+        //     celda[j] = document.createElement("td");
             
 
-            //posicion 0  del arreglo(fila 0), muestra la concentracion
-            if(i == 0 && j == 2){
-                //agregando texto por default(concentracion)
-                celda[j].innerHTML = concentracion;
-                // celda[0].innerHTML = concentracion;
-                // console.log("0,0")
-            }else if(i == 0 && j == 0){
-                celda[j].innerHTML = 0;
-                //agregando texto por default(0)
-            }else if(i == 0 && j == 1){
-                //agregando texto por default(0)
-                celda[j].innerHTML = 0;
-            }
+            // //posicion 0  del arreglo(fila 0), muestra la concentracion
+            // if(i == 0 && j == 2){
+            //     //agregando texto por default(concentracion)
+            //     celda[j].innerHTML = concentracion;
+            //     // celda[0].innerHTML = concentracion;
+            //     // console.log("0,0")
+            // }else if(i == 0 && j == 0){
+            //     celda[j].innerHTML = 0;
+            //     //agregando texto por default(0)
+            // }else if(i == 0 && j == 1){
+            //     //agregando texto por default(0)
+            //     celda[j].innerHTML = 0;
+            // }
 
             //---------------------------------
             //resultados para columna 0 y 1
             //estamos en el for de la j osea columnas
             //i=fila              j=columna 
-            let vm = [];
-            if(i >= 1 && j == 0){
-                for(let k= 0 ; k <= row;k++){
-                    vm.push(k);
-                    // celda[j].innerHTML = calcC;
-                    // console.log(calcC)
-                }
-                //recorrer el arreglo
-                for(let hr of vm){
-                    //se pasan a string para crear el elemento
-                    hr.toString();
-                    console.log(hr) //cada hora
-                }
+            // let vm = [];
+    //         if(i >= 1 && j == 0){
+    //             for(let k= 0 ; k <= row;k++){
+    //                 vm.push(k);
+    //                 // celda[j].innerHTML = calcC;
+    //                 // console.log(calcC)
+    //             }
+    //             //recorrer el arreglo
+    //             for(let hr of vm){
+    //                 //se pasan a string para crear el elemento
+    //                 hr.toString();
+    //                 console.log(hr) //cada hora
+    //             }
 
-                celda[j].innerHTML = vm[i];
-            }
+    //             celda[j].innerHTML = vm[i];
+    //         }
             
 
-            //resultados columna 1, a partir de la fila 0 en adelante
-            let h = [];
-            let sumatoria = 0;
-            if(i == 1 && j == 1){
-                celda[j].innerHTML = Hrs;
-            }else if(i >= 2 && j == 1){
-                for(let k= 1 ; k <= row;k++){
-                    h.push(sumatoria);
-                    sumatoria = sumatoria + parseInt(Hrs);
+    //         //resultados columna 1, a partir de la fila 0 en adelante
+    //         let h = [];
+    //         let sumatoria = 0;
+    //         if(i == 1 && j == 1){
+    //             celda[j].innerHTML = Hrs;
+    //         }else if(i >= 2 && j == 1){
+    //             for(let k= 1 ; k <= row;k++){
+    //                 h.push(sumatoria);
+    //                 sumatoria = sumatoria + parseInt(Hrs);
                     
-                }
+    //             }
 
-                //recorrer horas
-                for(let hora of h){
-                    hora.toString();
-                    console.log(hora) //arreglo columna 1 = H
-                }
-                celda[j].innerHTML = h[i];
-            }
+    //             //recorrer horas
+    //             for(let hora of h){
+    //                 hora.toString();
+    //                 console.log(hora) //arreglo columna 1 = H
+    //             }
+    //             celda[j].innerHTML = h[i];
+    //         }
 
 
-            //resultados columna 2, a partir de la fila 0 
-            let C = [];
-            let calcC = parseFloat(concentracion);
-            if(i >= 1 && j == 2){
-                //escribiendo el calculo de la concentracion a la mitad
+    //         //resultados columna 2, a partir de la fila 0 
+    //         let C = [];
+    //         let calcC = parseFloat(concentracion);
+    //         if(i >= 1 && j == 2){
+    //             //escribiendo el calculo de la concentracion a la mitad
                 
-                //calcular mitades y guardar
-                for(let k= 1 ; k <= row;k++){
+    //             //calcular mitades y guardar
+    //             for(let k= 1 ; k <= row;k++){
                     
-                    C.push(calcC);
-                    calcC = calcC/2;
-                    // celda[j].innerHTML = calcC;
-                    // console.log(calcC)
-                }
+    //                 C.push(calcC);
+    //                 calcC = calcC/2;
+    //                 // celda[j].innerHTML = calcC;
+    //                 // console.log(calcC)
+    //             }
                 
-                //recorrer el arreglo
-                for(let cNum of C){
-                    cNum.toString();
-                    // celda[j].innerHTML = cNum.toString();
-                    // console.log(cNum)
-                }
-                celda[j].innerHTML = C[i];
-                // console.log(concentracion)
-                console.log(C) //arreglo columna 2 
+    //             //recorrer el arreglo
+    //             for(let cNum of C){
+    //                 cNum.toString();
+    //                 // celda[j].innerHTML = cNum.toString();
+    //                 // console.log(cNum)
+    //             }
+    //             celda[j].innerHTML = C[i];
+    //             // console.log(concentracion)
+    //             console.log(C) //arreglo columna 2 
                 
-                }
-            // añadiendo la celda a la fila
-            rowi[i].appendChild(celda[j]);
+    //             }
+    //         // añadiendo la celda a la fila
+    //         rowi[i].appendChild(celda[j]);
             
-        }
-        tabla.appendChild(rowi[i]);
+    //     }
+    //     tabla.appendChild(rowi[i]);
     }
 }
 

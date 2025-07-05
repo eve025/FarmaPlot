@@ -74,8 +74,8 @@ const GraficVMxH = new Chart(VMxH, {
             text: 'Concentración (mg/L)'
         },
         ticks:{   
-            display: false // Oculta los números del eje Y
-        }
+                display: false // Oculta los números del eje Y
+            }
         }
     }
     }
