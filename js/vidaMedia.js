@@ -37,8 +37,17 @@ function crearTabla(e){
     inputHrs.disabled = true;
 
     //Validaciones en los inputs
-    //no se ha podido convertir a numero
-    if(isNaN(concentracion) || isNaN(Hrs)){
+    if(isNaN(concentracion) || concentracion <= 0){
+        //llamada a funcion del mensaje
+        //se pasa texto para h6 y que es un error(true)
+        mensaje("La tabla no puede ser generada, ingrese datos numéricos válidos y mayores a cero...<br>Se gráfica muestra concentraión x VM", true);
+        //no se generan graficas en este caso entonces se muestran bordes rojos
+        //section es una lista, no un único elemento.
+        section.forEach(function(seccionIndividual){
+            seccionIndividual.style.border = "2px solid red";
+        });
+        
+    }else if(isNaN(Hrs) || Hrs <= 0){
         //llamada a funcion del mensaje
         //se pasa texto para h6 y que es un error(true)
         mensaje("La tabla no puede ser generada, ingrese datos numéricos válidos y mayores a cero...", true);
@@ -47,30 +56,14 @@ function crearTabla(e){
         section.forEach(function(seccionIndividual){
             seccionIndividual.style.border = "2px solid red";
         });
-            
     }
-   
-    // !Hrs verifica si Hrs es falsy (vacío, null, undefined, 0, NaN o false), no solo si es ""
-    if((!concentracion || !Hrs)){
-        // console.log("try again");
-        // console.log("la concentracion es " + concentracion);
-        
-        //mostrar leyenda con datos ingresados, e un error se pasa true
-        mensaje("La tabla no puede ser generada, ingrese datos...", true);
-        //no se generan graficas en este caso entonces se muestran bordes rojos
-        //section es una lista, no un único elemento.
-        section.forEach(function(seccionIndividual){
-            seccionIndividual.style.border = "2px solid red";
-        });
-    }
-    
     // console.log("no esta vacio");
     // console.log("la concentracion es " + concentracion);
 
     //mostrar leyenda con datos ingresados
     //llamada a funcion del mensaje
     //se pasa texto para h6 y que NO es un error(false)
-    mensaje(`La tabla generada muestra una concentracion inicial: ${concentracion} y vida media inicial: ${Hrs}`, false);
+    mensaje(`La tabla y gráficas generadas muestran una concentracion inicial: ${concentracion} y vida media inicial: ${Hrs}`, false);
 
     section.forEach(function(seccionIndividual){
             seccionIndividual.style.border = "2px solid #000";
@@ -78,7 +71,7 @@ function crearTabla(e){
 
     //NOTA: en este programa se toma un umbral para parar las divisiones
     let row = 0;
-    for(let i = concentracion; i>=0.001; i = i/2){
+    for(let i = concentracion; i >= 0.001; i = i/2){
         // console.log(i) //numero ingresado 
         row++;
         // console.log(row) //numero de filas q se deben crear
@@ -204,8 +197,7 @@ function crearTabla(e){
     }
     console.log(h, vm, C);
 
-    
-    //Arreglos de la tabla
+    //Arreglos de la tabla //crear la grafica
     GraficoCxH.data.labels = h; // Eje X: horas
     //nota: En Chart.js, el objeto data de un gráfico puede contener uno o más conjuntos de datos (datasets).
     //osea es un arreglo con un objeto en la posicion 0 - Ese objeto representa un conjunto de datos (una línea en el gráfico, por ejemplo).
@@ -219,10 +211,6 @@ function crearTabla(e){
     GraficVMxH.update();
 }
 
-//crear la grafica
-function crearCanvas(){
-
-}
 
 //toma el parametro de texto que va en h6 y el tipo de dato(true o false, indicando el error o texto crear)para el boton de recarga
 function mensaje(texto, esError){

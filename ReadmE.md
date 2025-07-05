@@ -1,7 +1,7 @@
-## FarmaPlot
+## FarmaPlot ##
 
 📖 Descripción
-Este proyecto es una herramienta web interactiva inspirada en las necesidades de los estudiantes de medicina y farmacología. Permite a los usuarios calcular y visualizar cómo la concentración de un fármaco disminuye en el cuerpo a lo largo del tiempo, basándose en el concepto de la vida media.
+    Este proyecto es una herramienta web interactiva inspirada en las necesidades de los estudiantes de medicina y farmacología. Permite a los usuarios calcular y visualizar cómo la concentración de un fármaco disminuye en el cuerpo a lo largo del tiempo, basándose en el concepto de la vida media.
 
 El usuario introduce una concentración inicial y la vida media del fármaco, y la aplicación genera una tabla detallada y un gráfico que ilustran el decaimiento exponencial.
 
@@ -32,12 +32,11 @@ Visualización Gráfica: (Funcionalidad futura)
     Para realizar un nuevo cálculo, simplemente vuelve a hacer clic en el botón e ingresa todos los datos nuevamente.
 
 💻 Tecnologías Utilizadas
-    > HTML5: Para la estructura básica de la página.
-    > CSS3: Para dar estilo y hacer la interfaz amigable.
-    > JavaScript (Vanilla): Para toda la lógica de cálculo, manipulación del DOM y manejo de eventos.
+    -> HTML5: Para la estructura básica de la página.
+    -> CSS3: Para dar estilo y hacer la interfaz amigable.
+    -> JavaScript (Vanilla): Para toda la lógica de cálculo, manipulación del DOM y manejo de eventos.
 
 📝 Futuras Mejoras
-    [ ] Implementar la funcionalidad de graficación usando una librería como Chart.js
     [ ] Añadir validación de errores más detallada para las entradas del usuario.
     [ ] Permitir al usuario exportar la tabla a formatos como CSV o PDF.
 

@@ -5,7 +5,7 @@ const GraficoCxH = new Chart(CxH, {
     data: {
     labels: [], // Eje X: horas
     datasets: [{
-        label: 'Concentración (mg/L)',
+        label: 'Concentración (µg/L)',
         data: [], // Eje Y: concentración
         borderColor: 'violet',
         fill: false,
@@ -30,7 +30,7 @@ const GraficoCxH = new Chart(CxH, {
         y: {
         title: {
             display: true,
-            text: 'Concentración (mg/L)'
+            text: 'Concentración (µg/L)'
         },
         ticks:{   
             display: true // NO Oculta los números del eje Y
@@ -46,7 +46,7 @@ const GraficVMxH = new Chart(VMxH, {
     data: {
     labels: [], // Eje X: horas
     datasets: [{
-        label: 'Concentración (mg/L)',
+        label: 'Concentración (µg/L)',
         data: [], // Eje Y: vida media
         borderColor: 'violet',
         fill: false,
