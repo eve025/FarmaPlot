@@ -7,7 +7,7 @@ El usuario introduce una concentración inicial y la vida media del fármaco, y 
 
 ✨ Funcionalidades (Features)
     Entrada de Datos Sencilla: Pide al usuario dos valores clave:
-    - Concentración inicial del fármaco (ej. en mg/L).
+    - Concentración inicial del fármaco (en μg)
     - Vida media inicial del fármaco (en horas).
     
     Generación de Tabla Dinámica: Crea automáticamente una tabla con los siguientes datos:
@@ -37,7 +37,7 @@ Visualización Gráfica: (Funcionalidad futura)
     -> JavaScript (Vanilla): Para toda la lógica de cálculo, manipulación del DOM y manejo de eventos.
 
 📝 Futuras Mejoras
-    [ ] Añadir validación de errores más detallada para las entradas del usuario.
+    [ ] Añadir espacios en blanco en la tabla cuando H no se ingresa.
     [ ] Permitir al usuario exportar la tabla a formatos como CSV o PDF.
 
 
